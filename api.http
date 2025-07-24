@@ -1,0 +1,107 @@
+### Register
+POST http://localhost:8000/api/auth/register/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpass",
+  "role": "consumer"
+}
+
+### Login (JWT)
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpass"
+}
+
+### Refresh Token
+POST http://localhost:8000/api/auth/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "<refresh_token>"
+}
+
+### List Users (admin only)
+GET http://localhost:8000/api/users/
+Authorization: Bearer <access_token>
+
+### Get/Update Profile
+GET http://localhost:8000/api/profiles/1/
+Authorization: Bearer <access_token>
+
+### List/Create Products
+GET http://localhost:8000/api/products/
+POST http://localhost:8000/api/products/
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "name": "Apple",
+  "description": "Fresh apple",
+  "price": 1.5,
+  "category": "Fruit"
+}
+
+### Product Detail
+GET http://localhost:8000/api/products/1/
+Authorization: Bearer <access_token>
+
+### AI Quality Grading
+POST http://localhost:8000/api/ai/quality-grading/
+Authorization: Bearer <access_token>
+Content-Type: multipart/form-data
+
+# Fields: product_type, criteria, photo (file)
+
+### AI Market Analysis
+POST http://localhost:8000/api/ai/market-analysis/
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "product_type": "Apple",
+  "data_points": "historical sales, current market prices, seasonality"
+}
+
+### List/Create Orders
+GET http://localhost:8000/api/orders/
+POST http://localhost:8000/api/orders/
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "products": [1],
+  "total_price": 1.5,
+  "status": "pending"
+}
+
+### Order Detail
+GET http://localhost:8000/api/orders/1/
+Authorization: Bearer <access_token>
+
+### List/Create Messages
+GET http://localhost:8000/api/messages/
+POST http://localhost:8000/api/messages/
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "receiver": 2,
+  "content": "Hello!"
+}
+
+### List/Create Reviews
+GET http://localhost:8000/api/reviews/
+POST http://localhost:8000/api/reviews/
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "product": 1,
+  "rating": 5,
+  "comment": "Great!"
+} 

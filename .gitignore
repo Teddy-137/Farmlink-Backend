@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django related
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+
+# If you use Django's default static files directory
+/static/
+media/
+
+# Environment files
+.env
+.env.*
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Testing
+htmlcov/
+.coverage
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+test-results/
+
+# Migrations (optional: keep if you want to version control them)
+**/migrations/__pycache__/
+**/migrations/*.pyc
+**/migrations/*.pyo
+
+# MyPy
+.mypy_cache/
+
+# Pipenv
+Pipfile.lock
+
+# Docker
+*.pid
+*.tar
+*.bak
+*.backup

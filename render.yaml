@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: farmlink-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn core.wsgi:application --preload --bind 0.0.0.0:$PORT"
+    autoDeploy: true
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_HOSTS
+        value: "farmlink-backend.onrender.com"

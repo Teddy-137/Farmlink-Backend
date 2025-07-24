@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from users.views import UserViewSet, ProfileViewSet, register
+from users.views import UserViewSet, ProfileViewSet, UserRegistrationView
 from products.views import ProductViewSet, QualityGradingAPIView, MarketAnalysisAPIView
 from orders.views import OrderViewSet
 from messaging.views import MessageViewSet
@@ -37,7 +37,7 @@ router.register(r"reviews", ReviewViewSet)
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(router.urls)),
-    path("api/auth/register/", register, name="register"),
+    path("api/auth/register/", UserRegistrationView.as_view(), name="register"),
     path("api/auth/login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path(

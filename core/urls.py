@@ -24,6 +24,7 @@ from orders.views import OrderViewSet
 from messaging.views import MessageViewSet
 from reviews.views import ReviewViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
@@ -48,5 +49,11 @@ urlpatterns = [
         "api/ai/market-analysis/",
         MarketAnalysisAPIView.as_view(),
         name="market_analysis",
+    ),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "api/schema/swagger-ui/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
     ),
 ]

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "drf_spectacular",
     "users",
     "products",
     "orders",
@@ -148,6 +149,20 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Farmlink API",
+    "VERSION": "1.0.0",
+    "DESCRIPTION": "Farmlink API",
+    "LICENSE": {
+        "name": "MIT License",
+    },
+    "CONTACT": {
+        "name": "Farmlink",
+        "url": "https://farmlink.com",
+    },
 }
 
 from datetime import timedelta
